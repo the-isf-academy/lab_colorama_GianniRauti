@@ -14,10 +14,10 @@ from color_app.forms import ColorForm
 def home_view(request):
     "A view function which renders the homepage"
 
-    skyblue = Color(name="skyblue", red=128, green=128, blue=128)
+    skyblue = Color(name="grey", red=128, green=128, blue=128)
 
     params = {
-        "name": "Gianni",
+        "name": "My BBG",
         "color": skyblue,
     }
     
@@ -45,7 +45,7 @@ def random_color_view(request):
 class ColorListView(ListView):
     model = Color
     template_name = "color_app/color_list.html"
-    queryset = Color.objects.order_by("name")
+    queryset = Color.objects.order_by("-red")
 
 class NewColorView(CreateView):
     model = Color
